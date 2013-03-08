@@ -39,14 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brass9.Collections.Linq\IEnumerableExtensions.cs" />
     <Compile Include="Brass9.IO\FileStreamWriter.cs" />
     <Compile Include="Brass9.Text.RegularExpressions\RegexHelper.cs" />
     <Compile Include="Code\CodeBlock.cs" />
     <Compile Include="Code\CodeClass.cs" />
+    <Compile Include="Code\CodeEnum.cs" />
+    <Compile Include="Code\CodeEnumValue.cs" />
+    <Compile Include="Code\CodeInterface.cs" />
     <Compile Include="Code\CodeProperty.cs" />
+    <Compile Include="Code\CodeSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WcfCleaner.cs" />
     <Compile Include="WcfCleanerOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Parsers\" />
+    <Folder Include="Code\Writers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

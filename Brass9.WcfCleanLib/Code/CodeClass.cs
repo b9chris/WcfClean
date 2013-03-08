@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Brass9.WcfCleanLib.Code
 {
-	public class CodeClass
+	public class CodeClass : CodeSection
 	{
-		public string Headings { get; set; }
-
-		public string Name { get; set; }
-
 		public string Inheritance { get; set; }
 
 		public Dictionary<string, CodeBlock> Properties = new Dictionary<string, CodeBlock>();
@@ -19,13 +15,12 @@ namespace Brass9.WcfCleanLib.Code
 		public List<string> Chunks = new List<string>();
 
 
-		public CodeClass()
+		public CodeClass() : base()
 		{
 		}
 
-		public CodeClass(string name)
+		public CodeClass(string name) : base(name)
 		{
-			Name = name;
 		}
 	}
 }

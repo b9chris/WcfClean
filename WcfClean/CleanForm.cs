@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,10 +62,20 @@ namespace WcfClean
 
 		private void cleanup_Button_Click(object sender, EventArgs ev)
 		{
-			status_Label.Text = "Cleaning...";
+			string source = stripDoubleQuotes(textBox1.Text);
+			string output;
+			if (checkBox1.Checked)
+				output = source;
+			else
+				output = stripDoubleQuotes(textBox2.Text);
 
-			string source = textBox1.Text;
-			string output = textBox2.Text;
+			if (!File.Exists(source))
+			{
+				status_Label.Text = "Source file does not exist.";
+				return;
+			}
+
+			status_Label.Text = "Cleaning...";
 
 			Task.Factory.StartNew(() => {
 				var cleaner = new WcfCleaner();
@@ -74,6 +85,15 @@ namespace WcfClean
 					status_Label.Text = "Done.";
 				}));
 			});
+		}
+
+		protected string stripDoubleQuotes(string s)
+		{
+			if (s.StartsWith("\""))
+				s = s.Substring(1);
+			if (s.EndsWith("\""))
+				s = s.Substring(0, s.Length - 1);
+			return s;
 		}
 	}
 }
