@@ -20,16 +20,12 @@ namespace Brass9.WcfCleanLib
 		/// 
 		/// If true, changes the setter logic in optional properties (ones with a Specified field) to automatically set the
 		/// *Specified flag to true.
-		/// 
-		/// Ignored - treated as always true.
 		/// </summary>
 		public bool AutoSetSpecified { get; set; }
 
 		/// <summary>
 		/// Looks for long-hand Type statements and removes the namespace portion, moving it to a using statement at the top
 		/// of the file.
-		/// 
-		/// Ignored - treated as always true.
 		/// </summary>
 		public bool AddUsingStatements { get; set; }
 
